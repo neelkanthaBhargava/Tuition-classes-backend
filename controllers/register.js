@@ -4,7 +4,7 @@ const handleRegister = (bcrypt, db) => (req, res) => {
 
     const { uname, pass, email, std, board,
         contact, fathersName, mothersName, fathersContact,
-        mothersContact, address, school } = req.body;
+        mothersContact, address, school, userType } = req.body;
 
     const hash = bcrypt.hashSync(pass);
 
@@ -23,7 +23,7 @@ const handleRegister = (bcrypt, db) => (req, res) => {
                     .insert({
                         uname: uname,
                         email: loginEmail[0],
-                        usertype: 'student'
+                        usertype: userType
                     })
                     .then(userid => {
                         // console.log(userid);
@@ -44,7 +44,7 @@ const handleRegister = (bcrypt, db) => (req, res) => {
                             })
                             .then(userDetail=>{
                                 // console.log(userDetail);
-                                res.json([userDetail[0],uname,email,'student']);
+                                res.json([userDetail[0],uname,email,userType]);
                             })
                     })
             })

@@ -28,4 +28,14 @@ CREATE TABLE userpass(
 SELECT * FROM userpass;
 
 INSERT INTO "users" (uname, email, usertype) 
-VALUES ('Neelkantha Bhargava', 'neelkantha.96@gmail.com', 'admin');
+VALUES ('John', 'john@gmail.com', 'faculty');
+
+INSERT INTO userdetails (uid, university, std, board, address, fathersname, mothersname, contact, fatherscontact, motherscontact)
+VALUES (22, 'LU', 'M.Sc.', 'LU', 'xyz street', 'johns father', 'johns mother', 9876543210, 9876543211, 9876543212);
+
+INSERT INTO userpass (email, pass) VALUES ('john@gmail.com', 'wxyz')
+
+SELECT * FROM users JOIN userdetails ON users.uid = userdetails.uid WHERE users.email = 'john1@gmail.com';
+
+
+DELETE FROM users WHERE uid=22;
