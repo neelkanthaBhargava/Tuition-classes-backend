@@ -18,6 +18,7 @@ const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const studentList = require('./controllers/studentList');
 const facultyList = require('./controllers/facultyList');
+const addPayment = require('./controllers/addPayment');
 
 // express app creation
 const app = express();
@@ -37,6 +38,9 @@ app.post('/studentList', (req, res) => { studentList.handleStudentList(db)(req, 
 
 // Faculty list return request
 app.post('/facultyList', (req, res) => { facultyList.handleFacultyList(db)(req, res) });
+
+// Adding a payment
+app.post('/addPayment', (req, res) => { addPayment.handleNewPayment(db)(req, res) });
 
 // App is listening to port ->
 app.listen(process.env.PORT || 3000, () => {

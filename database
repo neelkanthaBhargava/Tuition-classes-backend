@@ -1,8 +1,8 @@
 CREATE TABLE users(
-uid serial PRIMARY KEY,
-uname varchar(30) NOT NULL,
-email varchar(100) UNIQUE NOT NULL,
-usertype varchar(10) NOT NULL
+    uid serial PRIMARY KEY,
+    uname varchar(30) NOT NULL,
+    email varchar(100) UNIQUE NOT NULL,
+    usertype varchar(10) NOT NULL
 );
 
 CREATE TABLE userdetails(
@@ -24,6 +24,15 @@ CREATE TABLE userpass(
     email varchar(100) UNIQUE NOT NULL,
     pass varchar(100) NOT NULL
 );
+
+CREATE TABLE userpayments(
+    payid serial PRIMARY KEY,
+    uid integer UNIQUE NOT NULL,
+    date timestamp NOT NULL,
+    for_month varchar(3) NOT NULL,
+    pay_value money NOT NULL
+);
+
 
 SELECT * FROM userpass;
 
