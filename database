@@ -1,0 +1,31 @@
+CREATE TABLE users(
+uid serial PRIMARY KEY,
+uname varchar(30) NOT NULL,
+email varchar(100) UNIQUE NOT NULL,
+usertype varchar(10) NOT NULL
+);
+
+CREATE TABLE userdetails(
+    id serial PRIMARY KEY,
+    uid int UNIQUE NOT NULL,
+    university varchar(100) NOT NULL,
+    std varchar(10) NOT NULL,
+    board varchar(10) NOT NULL,
+    address varchar(100) NOT NULL,
+    fathersName varchar(30) NOT NULL,
+    mothersName varchar(30 ) NOT NULL,
+    contact bigint NOT NULL,
+    fathersContact bigint NOT NULL,
+    mothersContact bigint NOT NULL
+);
+
+CREATE TABLE userpass(
+    pid serial PRIMARY KEY,
+    email varchar(100) UNIQUE NOT NULL,
+    pass varchar(100) NOT NULL
+);
+
+SELECT * FROM userpass;
+
+INSERT INTO "users" (uname, email, usertype) 
+VALUES ('Neelkantha Bhargava', 'neelkantha.96@gmail.com', 'admin');
