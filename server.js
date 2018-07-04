@@ -19,6 +19,8 @@ const signin = require('./controllers/signin');
 const studentList = require('./controllers/studentList');
 const facultyList = require('./controllers/facultyList');
 const addPayment = require('./controllers/addPayment');
+const studentPaymentList = require('./controllers/studentPaymentList');
+const lastPayment = require('./controllers/lastPayment');
 
 // express app creation
 const app = express();
@@ -41,6 +43,12 @@ app.post('/facultyList', (req, res) => { facultyList.handleFacultyList(db)(req, 
 
 // Adding a payment
 app.post('/addPayment', (req, res) => { addPayment.handleNewPayment(db)(req, res) });
+
+// Student payments list
+app.post('/studentPaymentList', (req, res) => { studentPaymentList.handlePaymentList(db)(req, res) });
+
+// Last Payment request
+app.post('/lastPayment', (req, res) => { lastPayment.getLastPayment(db)(req, res) });
 
 // App is listening to port ->
 app.listen(process.env.PORT || 3000, () => {

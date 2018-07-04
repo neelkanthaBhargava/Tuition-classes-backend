@@ -21,7 +21,7 @@ const handleNewPayment = (db) => (req, res) => {
                             res.json(data[0]);
                         })
                         .catch(err => {
-                            res.status(400).json('Invalid user');
+                            res.status(400).json('Payment failed');
                         })
                 }
             })
@@ -30,7 +30,7 @@ const handleNewPayment = (db) => (req, res) => {
             })
 
     } else {
-        res.status(400).json('Invalid user');
+        res.status(400).json('Invalid user type');
     }
 }
 

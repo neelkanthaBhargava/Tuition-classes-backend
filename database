@@ -27,7 +27,7 @@ CREATE TABLE userpass(
 
 CREATE TABLE userpayments(
     payid serial PRIMARY KEY,
-    uid integer UNIQUE NOT NULL,
+    uid integer NOT NULL,
     date timestamp NOT NULL,
     for_month varchar(3) NOT NULL,
     pay_value money NOT NULL
