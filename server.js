@@ -1,3 +1,4 @@
+//@ts-check
 // imports for libraries
 const express = require('express');
 const cors = require('cors');
@@ -21,6 +22,7 @@ const facultyList = require('./controllers/facultyList');
 const addPayment = require('./controllers/addPayment');
 const studentPaymentList = require('./controllers/studentPaymentList');
 const lastPayment = require('./controllers/lastPayment');
+const profile = require('./controllers/profile');
 
 // express app creation
 const app = express();
@@ -49,6 +51,9 @@ app.post('/studentPaymentList', (req, res) => { studentPaymentList.handlePayment
 
 // Last Payment request
 app.post('/lastPayment', (req, res) => { lastPayment.getLastPayment(db)(req, res) });
+
+// Profile request
+app.get('/profile/:uid', (req, res) => { profile.getProfileById(db)(req, res) });
 
 // App is listening to port ->
 app.listen(process.env.PORT || 3000, () => {
